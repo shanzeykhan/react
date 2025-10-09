@@ -10,8 +10,10 @@ import Section from "./Section";
 import FeaturedReviews from "./FeaturedReviews";
 import Footer from "./Footer";
 import Offers from "./Offers";
+import UseRef from "./useRef";
 
 import { aboutUs, favorites, offers, reviews, shopMore, topReviews} from "../utils/constants";
+
 
 const EcomPage = () => {
 
@@ -30,10 +32,14 @@ const EcomPage = () => {
       <TopReviews topReviews={topReviews} />
 
       <Section />
+      <UseRef/>
+
 
       <FeaturedReviews reviews={reviews} />
       <Offers offers={offers} />
       <Footer />
+      
+
 
       
     </main>

@@ -1,15 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 
 const Banner = () => {
-  const [newProduct, setNewProduct] = useState({
-    title: "",
-    price: "",
-    description: "",
-    categoryId: 1,
-    images: "https://placehold.co/600x400",
-  });
+  // const [newProduct, setNewProduct] = useState({
+  //   title: "",
+  //   price: "",
+  //   description: "",
+  //   categoryId: 1,
+  //   images: "https://placehold.co/600x400",
+  // });
   const [loading, setLoading] = useState(false);
+
+  const titleRef = useRef();
+  const priceRef = useRef();
+  const descriptionRef = useRef();
+  const categoryIdRef = useRef(1);
+  const imagesRef = useRef("https://placehold.co/600x400");
+
+  //   const productRef = useRef({
+  //   title: "",
+  //   price: "",
+  //   description: "",
+  //   categoryId: 1,
+  //   images: "https://placehold.co/600x400",
+  // });
+
+  const arr = [
+    { name: "Hussain" },
+    { name: "shnzay" },
+    { name: "mohsin" },
+    { name: "arsalan" },
+  ];
+  const a = [...arr, { name: "john" }];
+  console.log({ a });
 
   const [open, setOpen] = useState(false);
 
@@ -21,18 +44,20 @@ const Banner = () => {
     setOpen(false);
   };
 
-  const handleChange = (e) => {
-    setNewProduct({
-      ...newProduct,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = (e) => {
+  //   setNewProduct({
+  //     ...newProduct,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  console.log({ newProduct });
+  // console.log( productRef.current );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    console.log("called");
 
     try {
       const response = await fetch(
@@ -42,7 +67,13 @@ const Banner = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ ...newProduct, images: [newProduct.images] }),
+          body: JSON.stringify({
+            title: titleRef.current.value,
+            price: priceRef.current.value,
+            description: descriptionRef.current.value,
+            categoryId: parseFloat(categoryIdRef.current.value),
+            images: ["hussain.png"],
+          }),
         }
       );
 
@@ -85,48 +116,47 @@ const Banner = () => {
           className=" w-100 h-200 text-center flex flex-col justify-center items-center bg-gray-400"
         >
           <input
+            ref={titleRef}
             type="text"
             name="title"
             placeholder="Title"
             required
-            value={newProduct.title}
-            onChange={handleChange}
             className="bg-white w-80 mb-2 border-gray-200 border-2 px-4 py-5"
           />
 
           <input
+            ref={priceRef}
             type="number"
             name="price"
             placeholder="Price"
-            value={newProduct.price}
-            onChange={handleChange}
             className="bg-white w-80 mb-2 border-gray-200 border-2 px-4 py-5"
           />
 
           <input
+            ref={descriptionRef}
             type="text"
             name="description"
             placeholder="Description"
-            value={newProduct.description}
-            onChange={handleChange}
+            // value={descriptionRef.current.description}
             className="bg-white w-80 mb-2 border-gray-200 border-2 px-4 py-5"
           />
 
           <input
+            ref={categoryIdRef}
             type="number"
             name="categoryId"
             placeholder="Category-Id"
-            value={newProduct.categoryId}
-            onChange={handleChange}
+            value={categoryIdRef.current.categoryId}
             className="bg-white w-80 mb-2 border-gray-200 border-2 px-4 py-5"
           />
 
           <input
+            ref={imagesRef}
             type="file"
             name="images"
             placeholder="File"
             // value={newProduct.images}
-            onChange={handleChange}
+
             className="bg-white w-80 mb-2 border-gray-200 border-2 px-4 py-5"
           />
 
