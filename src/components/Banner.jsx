@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
+
+
+
 
 const Banner = () => {
   // const [newProduct, setNewProduct] = useState({
@@ -94,6 +97,12 @@ const Banner = () => {
       setLoading(false);
     }
   };
+
+
+
+
+
+
 
   return (
     <div className="relative w-full h-[48rem] pl-8 bg-[url('/Section01.png')] bg-cover bg-center text-center flex flex-col ">

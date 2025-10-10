@@ -23,6 +23,8 @@ const EcomPage = () => {
     setCount(count-1)
   }
 
+  
+
 
 
   return (
