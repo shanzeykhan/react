@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import Header from "./Header";
 import Banner from "./Banner";
 import ShopbyCategory from "./ShopbyCategory";
@@ -23,7 +23,12 @@ const EcomPage = () => {
     setCount(count-1)
   }
 
-  
+  const Dropdown = (props)=> {
+    return <div className="dropdown">
+      {props.children}
+    </div>
+
+  }
 
 
 
@@ -32,12 +37,13 @@ const EcomPage = () => {
       <CounterContext.Provider value={{count, setCount, counter}}>
       <Header />
       <Banner />
+      <Dropdown>
       <ShopbyCategory />
+      </Dropdown>
 
       <Shopmore shopMore={shopMore}/>
 
       <Aboutus aboutUs={aboutUs} />
-
       <Favorites favorites={favorites} />
 
       <TopReviews topReviews={topReviews} />
