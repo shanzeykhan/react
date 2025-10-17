@@ -1,9 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 
-
-
-
 const Banner = () => {
   // const [newProduct, setNewProduct] = useState({
   //   title: "",
@@ -20,22 +17,14 @@ const Banner = () => {
   const categoryIdRef = useRef(1);
   const imagesRef = useRef("https://placehold.co/600x400");
 
-  //   const productRef = useRef({
-  //   title: "",
-  //   price: "",
-  //   description: "",
-  //   categoryId: 1,
-  //   images: "https://placehold.co/600x400",
-  // });
-
-  const arr = [
-    { name: "Hussain" },
-    { name: "shnzay" },
-    { name: "mohsin" },
-    { name: "arsalan" },
-  ];
-  const a = [...arr, { name: "john" }];
-  console.log({ a });
+  // const arr = [
+  //   { name: "Hussain" },
+  //   { name: "shnzay" },
+  //   { name: "mohsin" },
+  //   { name: "arsalan" },
+  // ];
+  // const a = [...arr, { name: "john" }];
+  // console.log({ a });
 
   const [open, setOpen] = useState(false);
 
@@ -54,13 +43,13 @@ const Banner = () => {
   //   });
   // };
 
-  // console.log( productRef.current );
+  // console.log( newProduct );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    console.log("called");
+    console.log("called"); 
 
     try {
       const response = await fetch(
@@ -72,7 +61,7 @@ const Banner = () => {
           },
           body: JSON.stringify({
             title: titleRef.current.value,
-            price: priceRef.current.value,
+            price: priceRef.current.value, 
             description: descriptionRef.current.value,
             categoryId: parseFloat(categoryIdRef.current.value),
             images: ["hussain.png"],
@@ -83,13 +72,13 @@ const Banner = () => {
       const data = await response.json();
       console.log("New data added Successfully", data);
 
-      setNewProduct({
-        title: "",
-        price: "",
-        description: "",
-        categoryId: 1,
-        images: "https://placehold.co/600x400",
-      });
+      // setNewProduct({
+      //   title: "",
+      //   price: "",
+      //   description: "",
+      //   categoryId: 1,
+      //   images: "https://placehold.co/600x400",
+      // });
       handleClose();
     } catch (err) {
       console.log("Error:", err);
@@ -97,12 +86,6 @@ const Banner = () => {
       setLoading(false);
     }
   };
-
-
-
-
-
-
 
   return (
     <div className="relative w-full h-[48rem] pl-8 bg-[url('/Section01.png')] bg-cover bg-center text-center flex flex-col ">
@@ -146,7 +129,6 @@ const Banner = () => {
             type="text"
             name="description"
             placeholder="Description"
-            // value={descriptionRef.current.description}
             className="bg-white w-80 mb-2 border-gray-200 border-2 px-4 py-5"
           />
 

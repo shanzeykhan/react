@@ -26,6 +26,8 @@ const UseRef = () => {
 
   renderCount.current += 1;
 
+  
+
 
   return (
     <div>

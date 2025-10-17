@@ -10,12 +10,14 @@ import Section from "./Section";
 import FeaturedReviews from "./FeaturedReviews";
 import Footer from "./Footer";
 import Offers from "./Offers";
-import UseRef from "./useRef";
+import UseRef from "./UseRef";
 import { useState } from "react";
 import { aboutUs, favorites, offers, reviews, shopMore, topReviews} from "../utils/constants";
-import Practice from "./practice";
+import Practice from "./NewComp";
+import UseRed from "./UseRed";
 
 import CounterContext from "../providers/context";
+
 const EcomPage = () => {
 
   const [count, setCount] = useState(0);
@@ -34,6 +36,8 @@ const EcomPage = () => {
 
   return (
     <main className="w-full h-full text-black bg-white">
+      Hello
+
       <CounterContext.Provider value={{count, setCount, counter}}>
       <Header />
       <Banner />
@@ -50,6 +54,8 @@ const EcomPage = () => {
       <Offers offers={offers} />
       <Footer />
       <Practice/>
+      <UseRed />
+
     
       </CounterContext.Provider>
     </main>
