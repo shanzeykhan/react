@@ -16,6 +16,10 @@ const Practice = () => {
     return result;
   }, [multiple]);
 
+  const fun = ()=>{
+    console.log("Rendering....");
+  }
+
   const calculateAge = () => {
     console.log("Calculating age...");
     const currentAge = age + 1;

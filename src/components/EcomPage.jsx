@@ -40,27 +40,18 @@ const EcomPage = () => {
       <Dropdown>
       <ShopbyCategory />
       </Dropdown>
-
       <Shopmore shopMore={shopMore}/>
-
       <Aboutus aboutUs={aboutUs} />
       <Favorites favorites={favorites} />
-
       <TopReviews topReviews={topReviews} />
-
       <Section />
       <UseRef/>
-
-
       <FeaturedReviews reviews={reviews} />
       <Offers offers={offers} />
       <Footer />
       <Practice/>
-      
+    
       </CounterContext.Provider>
-
-
-      
     </main>
   );
 };
